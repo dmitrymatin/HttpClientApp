@@ -28,13 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.SuspendLayout();
+            // 
+            // webView
+            // 
+            this.webView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.webView.CreationProperties = null;
+            this.webView.Location = new System.Drawing.Point(12, 44);
+            this.webView.Name = "webView";
+            this.webView.Size = new System.Drawing.Size(776, 394);
+            this.webView.Source = new System.Uri("https://www.google.com", System.UriKind.Absolute);
+            this.webView.TabIndex = 0;
+            this.webView.Text = "webView21";
+            this.webView.ZoomFactor = 1D;
             // 
             // Visualiser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.webView);
             this.Name = "Visualiser";
             this.Text = "Визуализация";
             this.ResumeLayout(false);
@@ -42,5 +58,7 @@
         }
 
         #endregion
+
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView;
     }
 }
