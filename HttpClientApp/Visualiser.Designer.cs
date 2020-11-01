@@ -53,6 +53,7 @@
             this.Controls.Add(this.webView);
             this.Name = "Visualiser";
             this.Text = "Визуализация";
+            this.Load += new System.EventHandler(this.Visualiser_Load);
             this.ResumeLayout(false);
 
         }
