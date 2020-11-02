@@ -45,6 +45,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxResponseErrors = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.checkBoxAllowAddingHeaders = new System.Windows.Forms.CheckBox();
             this.tabControlReqResp.SuspendLayout();
             this.tabPageRequest.SuspendLayout();
             this.tabPageResponse.SuspendLayout();
@@ -65,12 +66,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxInput.Location = new System.Drawing.Point(70, 10);
             this.textBoxInput.Name = "textBoxInput";
-            this.textBoxInput.Size = new System.Drawing.Size(734, 27);
+            this.textBoxInput.Size = new System.Drawing.Size(523, 27);
             this.textBoxInput.TabIndex = 1;
             // 
             // buttonSubmitUrl
             // 
-            this.buttonSubmitUrl.Location = new System.Drawing.Point(815, 9);
+            this.buttonSubmitUrl.Location = new System.Drawing.Point(599, 9);
             this.buttonSubmitUrl.Name = "buttonSubmitUrl";
             this.buttonSubmitUrl.Size = new System.Drawing.Size(57, 29);
             this.buttonSubmitUrl.TabIndex = 2;
@@ -171,6 +172,7 @@
             this.buttonVisualise.TabIndex = 6;
             this.buttonVisualise.Text = "Визуализировать";
             this.buttonVisualise.UseVisualStyleBackColor = true;
+            this.buttonVisualise.Click += new System.EventHandler(this.buttonVisualise_Click);
             // 
             // textBoxResponseBody
             // 
@@ -228,11 +230,23 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Ошибка";
             // 
+            // checkBoxAllowAddingHeaders
+            // 
+            this.checkBoxAllowAddingHeaders.AutoSize = true;
+            this.checkBoxAllowAddingHeaders.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBoxAllowAddingHeaders.Location = new System.Drawing.Point(662, 12);
+            this.checkBoxAllowAddingHeaders.Name = "checkBoxAllowAddingHeaders";
+            this.checkBoxAllowAddingHeaders.Size = new System.Drawing.Size(210, 24);
+            this.checkBoxAllowAddingHeaders.TabIndex = 4;
+            this.checkBoxAllowAddingHeaders.Text = "Добавить поля заголовка";
+            this.checkBoxAllowAddingHeaders.UseVisualStyleBackColor = true;
+            // 
             // FormApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(888, 663);
+            this.Controls.Add(this.checkBoxAllowAddingHeaders);
             this.Controls.Add(this.tabControlReqResp);
             this.Controls.Add(this.buttonSubmitUrl);
             this.Controls.Add(this.textBoxInput);
@@ -268,6 +282,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxResponseBody;
         private System.Windows.Forms.Button buttonVisualise;
+        private System.Windows.Forms.CheckBox checkBoxAllowAddingHeaders;
     }
 }
 
