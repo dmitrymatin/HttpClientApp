@@ -60,43 +60,21 @@ namespace HttpClientApp
             HttpRequestMessage reqMessage = new HttpRequestMessage(new HttpMethod("GET"), textBoxInput.Text);
             reqMessage.Version = new Version(1, 1);
 
-            string queryString = $"Строка запроса: Method: {reqMessage.Method}, RequestUri: {reqMessage.RequestUri}, "
-                + $"Version: {reqMessage.Version}, Content: {reqMessage.Content?.ToString() ?? "<null>"}, "
-                + $"Headers: {Environment.NewLine}{ParseRequestHeaders(reqMessage.Headers)}";
-
-            textBoxDefaultRequest.Text = queryString;
-            textBoxDefaultRequest.Text += $"Заголовки: {ParseRequestHeaders(reqMessage.Headers)}";
+            textBoxDefaultRequest.Text = reqMessage.ToString() + Environment.NewLine;
+            textBoxDefaultRequest.Text += $"Заголовки: {reqMessage.Headers}";
 
             bool allowModifyingHeaders = checkBoxAllowAddingHeaders.Checked;
             if (allowModifyingHeaders)
             {
-                reqMessage.Headers.Add("Kek", "Lol");
-                reqMessage.Headers.Add("K", "L");
+                //reqMessage.Headers.UserAgent.Add(new ProductInfoHeaderValue("VS2019"));
+                reqMessage.Headers.From = "someone@vlsu.ru";
                 reqMessage.Headers.AcceptLanguage.Add(new StringWithQualityHeaderValue("en-US"));
 
-                string modifiedQueryString = $"Строка запроса: Method: {reqMessage.Method}, RequestUri: {reqMessage.RequestUri}, "
-                    + $"Version: {reqMessage.Version}, Content: {reqMessage.Content?.ToString() ?? "<null>"}, "
-                    + $"Headers: {Environment.NewLine}{ParseRequestHeaders(reqMessage.Headers)}";
-
-                textBoxModifiedRequest.Text = modifiedQueryString;
+                textBoxModifiedRequest.Text = reqMessage.ToString() + Environment.NewLine;
+                textBoxModifiedRequest.Text += $"Заголовки: {reqMessage.Headers}";
             }
 
             return reqMessage;
-        }
-
-        private static string ParseRequestHeaders(HttpRequestHeaders headers)
-        {
-            StringBuilder stringBuilder = new StringBuilder($"{{{Environment.NewLine}");
-            foreach (var item in headers)
-            {
-                stringBuilder.Append(item.Key).Append(" : ");
-                foreach (var value in item.Value)
-                {
-                    stringBuilder.Append(value).Append(Environment.NewLine);
-                }
-            }
-            stringBuilder.Append($"}}{Environment.NewLine}");
-            return stringBuilder.ToString();
         }
 
         private void buttonVisualise_Click(object sender, EventArgs e)
