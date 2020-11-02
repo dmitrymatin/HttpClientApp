@@ -66,7 +66,8 @@ namespace HttpClientApp
             bool allowModifyingHeaders = checkBoxAllowAddingHeaders.Checked;
             if (allowModifyingHeaders)
             {
-                //reqMessage.Headers.UserAgent.Add(new ProductInfoHeaderValue("VS2019"));
+                reqMessage.Headers.UserAgent
+                    .Add(new ProductInfoHeaderValue("Chrome", "86.0.4240.111"));
                 reqMessage.Headers.From = "someone@vlsu.ru";
                 reqMessage.Headers.AcceptLanguage.Add(new StringWithQualityHeaderValue("en-US"));
 
