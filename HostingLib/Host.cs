@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HttpServerApp
+namespace HostingLib
 {
     public class Host
     {
@@ -93,7 +93,6 @@ namespace HttpServerApp
                     responseString = $"<HTML><BODY> Hello {request.Headers["From"]}!</BODY></HTML>";
                     break;
                 case "/time":
-                    var stream = request.InputStream;
                     responseString = $"<HTML><BODY> It's {DateTimeOffset.UtcNow}!</BODY></HTML>";
                     break;
                 case "/redirectToGoogle":

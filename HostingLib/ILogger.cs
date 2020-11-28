@@ -1,4 +1,4 @@
-﻿namespace HttpServerApp
+﻿namespace HostingLib
 {
     public interface ILogger
     {
