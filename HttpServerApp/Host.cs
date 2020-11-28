@@ -72,7 +72,7 @@ namespace HttpServerApp
                 logger.Log($"Incoming request to {request.Url}; {request.Headers}");
 
                 HttpListenerResponse response = context.Response;
-                byte[] buffer = PrepareResponseMessage(request);
+                byte[] buffer = PrepareResponseMessage(request, response);
 
                 // Get a response stream and write the response to it.
                 response.ContentLength64 = buffer.Length;
@@ -83,7 +83,7 @@ namespace HttpServerApp
             }
         }
 
-        private byte[] PrepareResponseMessage(HttpListenerRequest request)
+        private byte[] PrepareResponseMessage(HttpListenerRequest request, HttpListenerResponse response)
         {
             string responseString = string.Empty;
 
@@ -95,6 +95,9 @@ namespace HttpServerApp
                 case "/time":
                     var stream = request.InputStream;
                     responseString = $"<HTML><BODY> It's {DateTimeOffset.UtcNow}!</BODY></HTML>";
+                    break;
+                case "/redirectToGoogle":
+                    response.Redirect("https://google.com");
                     break;
                 default:
                     break;

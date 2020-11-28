@@ -15,7 +15,7 @@ namespace HttpServerApp
         {
             progressBarListener.Visible = true;
             textBoxLogger.Text = string.Empty;
-            host = new Host(new WindowsFormsLogger(textBoxLogger), new string[] { "/hello", "/time"});
+            host = new Host(new WindowsFormsLogger(textBoxLogger), new string[] { "/hello", "/time", "/redirectToGoogle"});
             DisplayAvailablePaths();
             await host.ListenAsync();
         }
