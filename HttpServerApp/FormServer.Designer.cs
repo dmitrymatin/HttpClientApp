@@ -114,7 +114,7 @@ namespace HttpServerApp
             this.Controls.Add(this.buttonStartListener);
             this.Controls.Add(this.textBoxLogger);
             this.Name = "FormServer";
-            this.Text = "Server";
+            this.Text = "HTTP-Server";
             this.ResumeLayout(false);
             this.PerformLayout();
 

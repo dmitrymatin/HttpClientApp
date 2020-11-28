@@ -19,6 +19,8 @@ namespace HttpClientApp
 
         private async void buttonSubmitUrl_Click(object sender, EventArgs e)
         {
+            textBoxResponseErrors.Text = string.Empty;
+
             HttpRequestMessage reqMessage = PrepareRequest();
 
             HttpResponseMessage response = null;

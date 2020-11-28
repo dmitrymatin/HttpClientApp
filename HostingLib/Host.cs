@@ -44,7 +44,6 @@ namespace HostingLib
         {
             httpListener.Stop();
             listen = false;
-            logger.Log("stopped listening.");
         }
 
         public async Task ListenAsync()
@@ -63,7 +62,7 @@ namespace HostingLib
                 catch (HttpListenerException ex)
                 {
                     if (ex.ErrorCode == 995) 
-                        logger.Log("error 995 occurred");
+                        logger.Log("stopped listening (995).");
                     return;
                 }
 
