@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,7 +21,17 @@ namespace HttpClientApp
         {
             HttpRequestMessage reqMessage = PrepareRequest();
 
-            HttpResponseMessage response = await httpClient.SendAsync(reqMessage);
+            HttpResponseMessage response = null;
+
+            try
+            {
+                response = await httpClient.SendAsync(reqMessage);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
 
             CheckForErrors(response);
 
